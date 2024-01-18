@@ -28,7 +28,7 @@ for(let button in listButtons){
         buttonElement.addEventListener('click',() => {
             displayOperation.textContent += listButtons[button];
         })
-    } else {
+    }else{
         buttonElement.addEventListener("click", () => {
             let operator = getOperator(displayOperation.textContent)
             let a = getOperandA(displayOperation.textContent);
@@ -36,6 +36,19 @@ for(let button in listButtons){
             displayResult.textContent = `${operate(operator,a,b)}`
         })
     }
+    if((listButtons[button] === "+") || (listButtons[button] === "-") || (listButtons[button] === "x") || (listButtons[button] === "/")){
+        buttonElement.addEventListener("click", () => {
+             console.log("Ecouteur d'événement")
+             if((displayResult.textContent === "") == false){
+                 let getNewOperand = displayResult.textContent
+                 displayResult.textContent = ""
+                 //Nouvelle opération
+                 displayOperation.textContent = `${getNewOperand}${listButtons[button]}`
+             }
+ 
+        })    
+     
+     }
     buttonContainer.appendChild(buttonElement);
 }
 
