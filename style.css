@@ -81,3 +81,19 @@ output{
     background-color:rgb(105, 105, 105);
     transition:all .15s ease-in-out; ;
 }
+
+@media screen and (max-width:520px) {
+    .calculator{
+        width: 80%;
+        height: 70%;
+    }
+    .display{
+        justify-content: space-around;
+    }
+    .display .display-result output{
+        font-size: 20px;
+    }
+    .display .display-operation output{
+        font-size:18px
+    }
+}
