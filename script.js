@@ -81,31 +81,13 @@ function getOperator(str){
 }
 
 function getOperandA(str){
-    let number = []
-    let array = str.split('')
-    for(let i = 0; i < array.length; i++){
-        number.push(array[i])
-        if (isNotNumber(array[i])){
-            break
-        }
-    }
-    return parseInt(number.join(''))
+    // retirer l'opérateur et la deuxième opérande de la string
+    return parseInt(str.substr(0,str.indexOf(getOperator(str))))
 }
 
 function getOperandB(str){
-    // possible solution : let number = str.substr(0,str.indexOf(getOperator(str)))
-    let array = str.split('')
-    for(let i = 0; i < array.length; i++){
-        if(!isNotNumber(array[i])){
-            array.shift()
-        }else{
-            break
-        }   
-    }
-    array.shift()
-    console.log((array.join('')))
-    console.log(number)
-    return parseInt(array.join(''))
+    // retirer l'opérateur ("+1") et la première opérande de la string
+    return parseInt(str.substr(str.indexOf(getOperator(str)) +1))
 }
 
 function isNotNumber(char){
