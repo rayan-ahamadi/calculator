@@ -36,13 +36,21 @@ for(let button in listButtons){
     }
     if((listButtons[button] === "+") || (listButtons[button] === "-") || (listButtons[button] === "x") || (listButtons[button] === "/")){
         buttonElement.addEventListener("click", () => {
-             console.log("Ecouteur d'événement")
              if((displayResult.textContent === "") == false){
                  let getNewOperand = displayResult.textContent
                  displayResult.textContent = ""
                  //Nouvelle opération
                  displayOperation.textContent = `${getNewOperand}${listButtons[button]}`
              }
+            if(nbOccurence(displayOperation.textContent,"+") > 1  || nbOccurence(displayOperation.textContent,"-") > 1  ||nbOccurence(displayOperation.textContent,"x") > 1  ||nbOccurence(displayOperation.textContent,"/") > 1 ){
+                let newOperation = displayOperation.textContent.slice(0,-1)
+                displayOperation.textContent = newOperation
+                let operator = getOperator(displayOperation.textContent)
+                let a = getOperandA(displayOperation.textContent);
+                let b = getOperandB(displayOperation.textContent);
+                displayResult.textContent = `${operate(operator,a,b)}`
+                displayOperation.textContent = `${displayResult.textContent}${listButtons[button]}`
+            }
  
         })    
      
@@ -89,6 +97,17 @@ function getOperator(str){
     }else if(str.includes("-")){
         return "-"
     }
+}
+
+function getOccurence(str, letter){
+    let array = str.split('')
+    let nbOcc = 0;
+    for(let i = 0; i<array.length;i++){
+        if(array[i] === letter ){
+            nb0cc++
+        }
+    }
+    return nbOcc
 }
 
 function getOperandA(str){
