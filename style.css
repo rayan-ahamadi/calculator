@@ -75,6 +75,8 @@ output{
 .button{
     background: #616161;
     color:darkgrey;
+    height: 62px;
+    width: 62px;
 }
 
 .button:hover{
@@ -85,7 +87,7 @@ output{
 @media screen and (max-width:520px) {
     .calculator{
         width: 80%;
-        height: 70%;
+        height: fit-content
     }
     .display{
         justify-content: space-around;
@@ -95,5 +97,10 @@ output{
     }
     .display .display-operation output{
         font-size:18px
+    }
+
+    .buttons .button{
+        height: 50px;
+        width: 50px;
     }
 }

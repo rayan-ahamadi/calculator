@@ -10,8 +10,6 @@ for(let button in listButtons){
     let buttonElement = document.createElement('button');
     buttonElement.textContent = listButtons[button];
     buttonElement.classList.add('button');
-    buttonElement.style["height"] = "62px"
-    buttonElement.style["width"] = "62px"
     buttonElement.style["font-size"] = "23px"
     buttonElement.style["border-radius"] = "50%"
     buttonElement.style["border"] = "3px solid #333"
